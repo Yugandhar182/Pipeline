@@ -1,5 +1,5 @@
 <script>
-	// Inspired by https://svelte.dev/repl/810b0f1e16ac4bbd8af8ba25d5e0deff?version=3.4.2.
+	
 	import {flip} from 'svelte/animate';
 	
 	let baskets = [
@@ -22,9 +22,7 @@
 	let dropIndex = null;
 	
 	function dragStart(event, basketIndex, itemIndex) {
-		// The data we want to make available when the element is dropped
-    // is the index of the item being dragged and
-    // the index of the basket from which it is leaving.
+		
 		const data = {basketIndex, itemIndex};
    	event.dataTransfer.setData('text/plain', JSON.stringify(data));
 	}
@@ -34,11 +32,10 @@
     const json = event.dataTransfer.getData("text/plain");
 		const data = JSON.parse(json);
 		
-		// Remove the item from one basket.
-		// Splice returns an array of the deleted elements, just one in this case.
+		
 		const [item] = baskets[data.basketIndex].items.splice(data.itemIndex, 1);
 		
-    // Add the item to the drop target basket.
+    
 		const items = baskets[basketIndex].items;
 		items.splice(dropIndex ?? items.length, 0, item);
 		baskets = baskets;

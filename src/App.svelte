@@ -101,7 +101,7 @@
   ul {
 		border: solid lightgray 1px;
 		display: flex; 
-		height: 40px; 
+		height: 50px; 
 		padding: 10px;
 	}
 </style>
